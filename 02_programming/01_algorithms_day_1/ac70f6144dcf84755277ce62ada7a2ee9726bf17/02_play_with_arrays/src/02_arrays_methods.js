@@ -12,6 +12,7 @@ digits.push(4);
 digits.push(5);
 digits.push(6);
 digits.push(7);
+
 digits.push(8);
 digits.push(9);
 
