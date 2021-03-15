@@ -24,18 +24,21 @@ const frieda = {
   age : 22,
   name : "Frieda",
 };
-  
+
 let canFriedaDrinkAlcohol = false;
 let canFrancisDrinkAlcohol = false;
-  
-if (frieda.age >= 18){
+
+if (frieda.age >= 18) {
   canFriedaDrinkAlcohol = true;
 } else {
   canFriedaDrinkAlcohol = false;
 }
-  
-if (francis.age >= 18){
-  canFrancisDrinkAlcohol= true;
+
+if (francis.age >= 18) {
+  canFrancisDrinkAlcohol = true;
 } else {
   canFrancisDrinkAlcohol = false;
 }
+
+console.log(canFriedaDrinkAlcohol);
+console.log(canFrancisDrinkAlcohol);

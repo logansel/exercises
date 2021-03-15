@@ -23,6 +23,6 @@ function range(nbre1, nbre2) {
 }
 
 console.log(range(1,5));
-console.log(range(20,5));
+console.log(range(20,1));
 // Do not remove last lines, it is for tests
 module.exports = range;
