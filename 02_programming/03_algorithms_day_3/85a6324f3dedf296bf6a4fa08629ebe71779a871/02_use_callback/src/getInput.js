@@ -1,0 +1,9 @@
+// A function that takes two parameters, the second one being a callback function
+
+const getInput = (input, callback) => callback(input.key);
+
+
+
+// Leave the line below for tests to work
+module.exports = getInput;
+
