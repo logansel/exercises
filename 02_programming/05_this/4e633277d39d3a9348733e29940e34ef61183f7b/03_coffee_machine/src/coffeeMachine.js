@@ -3,6 +3,7 @@ const machine = {
 
   fillWithLitersOfCoffee: function (liters) {
     this.litersOfCoffee += liters;
+    return this;
   },
   
   servcup: function (litreservie) {
@@ -11,7 +12,7 @@ const machine = {
       return true;
     } else {
       return false;
-    }
+    };
   },
         
   expresso: function () {
