@@ -60,7 +60,7 @@ describe("Let the tests on arrays begin !", () => {
     
     mockArray = ["Lord of the rings : the return of the king", "Into the wild", "Alien the 8th passenger", "Tombeau des lucioles", "fight club"];
    
-    mockArray.forEach(word => {expect(typeof word).toBe("string");})
+    mockArray.forEach(word => expect(typeof word).toBe("string"))
   })
   
 
@@ -71,10 +71,7 @@ describe("Let the tests on arrays begin !", () => {
     expect.assertions(1);
 
     mockArray = ["Lord of the rings : the return of the king", "Into the wild", "Alien the 8th passenger", "Tombeau des lucioles", "fight club"];  
-    expect(mockArray
-      .map((word) => word.split(' : ')
-        .filter((movie) => movie === 'Lord of the rings')
-        .join(''))).toContain("Lord of the rings");
+    expect(mockArray.map((word) => word.split(' : ').filter((movie) => movie === 'Lord of the rings').join(''))).toContain("Lord of the rings");
     });
 
   //Create a test that checks if the elements in mockArray respect that the strings are the same with the right order as solutionArray
@@ -99,7 +96,7 @@ describe("Let the tests on objects begin !", () => {
   // Hint: we want our mock object to _match_ another smaller object (look at the documentation!)
 
 
-  test("check if Command-object contains least fries = true ans sauce : Hannibal",()=> {
+  test("check if Command-object contains least fries = true and sauce : Hannibal",()=> {
     expect.assertions(1);
     mockObject = {
       sauce: "Hannibal",
@@ -113,7 +110,7 @@ describe("Let the tests on objects begin !", () => {
       fries: true,
   };
 
-  expect(Object.is(mockObject, mockObjet2)).toEqual("false"); 
+  expect(Object.is(mockObject, mockObjet2)).toEqual(false); 
   })
   
 });

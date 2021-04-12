@@ -5,7 +5,7 @@ function getCategories(): Promise<string[]> {
 }
 
 function getJoke(categories: string): Promise<string> {
-  return getChuckJoke(categories).then(joke => joke.value);
+  return getChuckJoke(categories).then((joke) => joke.value);
 }
 
 // Leave the line below for tests to work properly

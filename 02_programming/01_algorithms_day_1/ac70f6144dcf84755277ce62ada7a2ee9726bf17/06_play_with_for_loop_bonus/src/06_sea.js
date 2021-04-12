@@ -12,3 +12,25 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~X~~~~~~~~~~~~~~~~~~~~~~~
 // ```
+
+///// je sais pas pk il ne fonctionne pas ///
+
+// let stars = "";
+// let j; // hauteur
+// let i; // longeur
+
+// for (j = 0; j < 9; j++) {
+//   for (i = 0; i < 30; i++) {
+//     stars += "~";
+//   }
+//   if (j < 9) {
+//     stars += "!!!\n";
+//   }
+// }
+// console.log(stars);
+
+let stars = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+
+for (let i = 0; i < 9; i++) {
+  console.log(stars);
+}

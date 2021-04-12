@@ -4,7 +4,8 @@ export function rectangle(width: number, height: number): string {
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++){
       str +="*"
-    } str += "\n"
+    } 
+    str += "\n"
   }
   return str
 }

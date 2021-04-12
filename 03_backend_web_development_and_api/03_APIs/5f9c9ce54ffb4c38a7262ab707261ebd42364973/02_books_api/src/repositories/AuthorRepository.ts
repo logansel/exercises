@@ -5,10 +5,15 @@ import { Book } from "../@types/book";
 class AuthorRepository {
   baseUrl = process.env.BASE_URL
 
-  // Code functions here like this
-  /*
-  neededFunction() {}
-  */
+  getAll(): Promise<void> {
+    return fetch (`${this.baseUrl}/authors`, {method : "GET"})
+      .then((response) => response.json())
+      .then ((json) => json)
+      .catch ((error)) => console.error(error);
+  }
+
+
+
 }
 
 // Leave the line below for tests to work

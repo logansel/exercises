@@ -5,3 +5,5 @@ export function helloSailor(who?: string): void {
     console.log("Howdy Sailor! Good day to you!");
   }
 }
+
+helloSailor("john");
