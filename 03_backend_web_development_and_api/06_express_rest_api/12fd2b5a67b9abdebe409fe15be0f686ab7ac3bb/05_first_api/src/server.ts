@@ -47,11 +47,13 @@ app.get("/platforms/:platform_slug", (request: Request, response: Response) => {
 app.get("/platforms", (request: Request, response: Response) => {
   response.status(200);
   response.json(
-    games.map((game) => {
-      return {
-        name: game.name,
-        slug: game.slug,
-      };
-    }),
-  );
-});
+    const gameplateform = this.collection.map((plateform) => {
+    return {
+      name: plateform.name,
+      slug: plateform.slug,
+    };
+  });
+const gameplat2 = Array.from(new Set(gameplateform));
+return gameplat2;
+
+})
