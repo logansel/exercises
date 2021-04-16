@@ -1,4 +1,4 @@
-import express { Request Response }from "express";
+import express from "express";
 import * as core from "express-serve-static-core";
 import { GameModel } from "./models/game";
 
@@ -14,7 +14,7 @@ export function makeApp(gameModel: GameModel): core.Express {
   });
 
   app.get("/games/:game_slug", (request, response) => {
-    const game = gameModel.findBySlug(request.params.game_slug);
+    const game = gameModel.findBySlug(request.params.game_slug)
 
     if (!game) {
       response.status(404).end();
@@ -24,13 +24,13 @@ export function makeApp(gameModel: GameModel): core.Express {
   });
 
   app.get("/platforms", (request, response) => {
-    const platforms = gameModel.getPlatforms();
+    const platforms = gameModel.getPlatforms()
 
     response.json(platforms);
   });
 
   app.get("/platforms/:platform_slug", (request, response) => {
-    const gamesForPlatform = gameModel.findByPlatform(request.params.platform_slug);
+    const gamesForPlatform = gameModel.findByPlatform(request.params.platform_slug)
 
     response.json(gamesForPlatform);
   });

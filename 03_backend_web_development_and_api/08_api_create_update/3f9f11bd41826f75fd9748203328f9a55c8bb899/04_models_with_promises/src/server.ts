@@ -1,4 +1,4 @@
-import express { Request Response }from "express";
+import express from "express";
 import * as core from "express-serve-static-core";
 import { GameModel } from "./models/game";
 
@@ -10,29 +10,33 @@ export function makeApp(gameModel: GameModel): core.Express {
   });
 
   app.get("/games", (request, response) => {
-    response.json(gameModel.getAll());
+    gameModel.getAll().then((games) => {
+      response.json(games);
+    });
   });
 
   app.get("/games/:game_slug", (request, response) => {
-    const game = gameModel.findBySlug(request.params.game_slug);
-
-    if (!game) {
-      response.status(404).end();
-    } else {
-      response.json(game);
-    }
+    gameModel.findBySlug(request.params.game_slug).then((game) => {
+      if (!game) {
+        response.status(404).end();
+      } else {
+        response.json(game);
+      }
+    });
   });
 
   app.get("/platforms", (request, response) => {
-    const platforms = gameModel.getPlatforms();
-
-    response.json(platforms);
+    gameModel.getPlatforms().then((platforms) => {
+      response.json(platforms);
+    });
   });
 
   app.get("/platforms/:platform_slug", (request, response) => {
-    const gamesForPlatform = gameModel.findByPlatform(request.params.platform_slug);
-
-    response.json(gamesForPlatform);
+    gameModel
+      .findByPlatform(request.params.platform_slug)
+      .then((gamesForPlatform) => {
+        response.json(gamesForPlatform);
+      });
   });
 
   return app;
