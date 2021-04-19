@@ -24,14 +24,14 @@ export class GameModel {
   //     .find()
   //     .toArray()                    // le monde des toons avant le .then()
   //     .then((games) => {            // permet de l'utiliser    (Then = resolve = return)
-  //       return games.map((game) => {
-  //         return {
-  //           name: game.name,
-  //           slug: game.slug,
-  //           cover: game.cover_url,
-  //         };
-  //       });
-  //     });
+        // return games.map((game) => {
+        //   return {
+        //     name: game.name,
+        //     slug: game.slug,
+        //     cover: game.cover_url,
+        //   };
+        // });
+      // });
   // }
 
   async getAll(): Promise<Game[]> {
