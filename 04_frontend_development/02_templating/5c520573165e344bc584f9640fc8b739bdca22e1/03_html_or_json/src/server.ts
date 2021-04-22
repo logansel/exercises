@@ -7,6 +7,9 @@ const clientWantsJson = (request: express.Request): boolean => request.get("acce
 
 export function makeApp(gameModel: GameModel): core.Express {
   const app = express();
+
+  app.use("/assets", express.static("assets"));
+
   nunjucks.configure("views", {
     autoescape: true,
     express: app,
@@ -31,7 +34,7 @@ export function makeApp(gameModel: GameModel): core.Express {
         if (clientWantsJson(request)) {
           response.json(game);
         } else {
-          response.render("game_slug", { game });
+          response.render("game", { game });
         }
       }
     });
@@ -55,6 +58,10 @@ export function makeApp(gameModel: GameModel): core.Express {
         response.render("platform_slug", { gamesForPlatform });
       }
     });
+  });
+
+  app.get("/home", (request, response) => {
+    response.render("HOME");
   });
 
   app.get("/*", (request, response) => {

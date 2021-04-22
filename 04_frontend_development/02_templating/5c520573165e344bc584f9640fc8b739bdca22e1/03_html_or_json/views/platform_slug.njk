@@ -5,12 +5,14 @@
 <h1>Games par platform</h1>
 
 <ul>
-  {% for platform in gamesForPlatform %}
+  {% for game in gamesForPlatform %}
   <li>
-    <img src="{{platform.cover}}">
-    {{platform.name}}
+    <img src="{{game.cover}}">
+    <a href="/games/{{game.slug}}">{{game.name}}</a>
   </li>
    {% endfor %}
 </ul>
 
 {% endblock %}
+
+

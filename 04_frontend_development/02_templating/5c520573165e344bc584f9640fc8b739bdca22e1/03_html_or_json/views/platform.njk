@@ -8,7 +8,8 @@
     {% for platform in platforms %}
     <li>
           <img src="{{platform.cover}}">
-          {{platform.name}}
+
+           <a href="platforms/{{ platform.slug }}">{{ platform.name }}</a>
     </li>
      {% endfor %}
 </ul>

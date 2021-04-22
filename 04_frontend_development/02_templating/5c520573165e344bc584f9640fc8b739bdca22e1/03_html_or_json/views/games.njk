@@ -10,7 +10,8 @@
 <ul>
     {% for game in games %}
     <li>
-      <img src="{{game.cover}}"><a href="/games/{{game.slug}}">{{game.name}}
+      <img src="{{game.cover}}">
+      <a href="/games/{{game.slug}}">{{game.name}}
     </li>
      {% endfor %}
 </ul>
