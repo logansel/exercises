@@ -3,10 +3,27 @@
 
 {% block content %}
 
-<h1>Wesh la ziiiiiz !</h1>
 
-<p>Bienvenue dans la famille des petits pois Bonduelle</p>
+{# lier une page css #}
+{% block css %}
+<link rel="stylesheet" href="/assets/styles/home.css" />
+{% endblock %}
 
-<p>La Ilez's Family</p>
+<div class="container">
+
+  <div class="logo">
+    <img src="assets/images/vulbis.png" height="40px" />
+    <h1>Sites de jeux !</h1>
+    <img src="assets/images/vulbis.png" height="40px" />
+  </div>
+
+  <p>Bienvenue dans mon premier essai</p>
+
+  <p class="trait"></p>
+
+  <img src="assets/images/imagehome.jpeg">
+  
+</div>
 
 {% endblock %}
+

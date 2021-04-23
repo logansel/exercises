@@ -3,15 +3,27 @@
 
 {% block content %}
 
-<h1>Platforms</h1>
-<ul>
+
+{% block css %}
+<link rel="stylesheet" href="/public/styles/platforms.css" />
+{% endblock %}
+
+<div class="container">
+    <div class="title">
+        <h1>Platforms</h1> 
+    </div>
+
+  <div class="row row-cols-3">
     {% for platform in platforms %}
-    <li>
-          <img src="{{platform.cover}}">
-
+        <div class="col">
+          <div class="imageplatform">
+            <img src="{{platform.cover}}">
            <a href="platforms/{{ platform.slug }}">{{ platform.name }}</a>
-    </li>
-     {% endfor %}
-</ul>
+          </div>
+        </div>
 
+    {% endfor %}
+
+    </div>  
+  </div>
 {% endblock %}

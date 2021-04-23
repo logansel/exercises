@@ -3,17 +3,27 @@
 
 {% block content %}
 
-<h1>Games</h1>
+{# lier une page css #}
+{% block css %}
+<link rel="stylesheet" href="/public/styles/games.css" />
+{% endblock %}
 
+  <div class="container">
+    <div class="title">
+      <h1>Games</h1> 
+    </div>
 
+    <div class="row row-cols-3">
+      {% for game in games %}
+        <div class="col">
+          <div class="imagejeux">
+            <img src="{{game.cover}}">
+            <a href="/games/{{game.slug}}">{{game.name}}</a>
+          </div>
+        </div>
 
-<ul>
-    {% for game in games %}
-    <li>
-      <img src="{{game.cover}}">
-      <a href="/games/{{game.slug}}">{{game.name}}
-    </li>
-     {% endfor %}
-</ul>
+      {% endfor %}
 
+    </div>
+  </div>
 {% endblock %}
