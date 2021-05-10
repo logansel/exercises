@@ -1,0 +1,48 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+   <img src="{{ game.cover_url }}"/>
+
+  <h1>{{ game.name }}</h1>
+
+  <p>{{ game.summary }}</p>
+
+  <h1 class="border border-dark m-2 p-2 rounded text-center bg-success text-info ">Commentaires</h1>
+  
+
+
+<ul>
+{% for comments in game.comments %}
+    <li>{{ comments.name }} : {{ comments.comment }}</li>
+  
+  {% else %}
+  <p>No comments yet, add your own</p>
+  {% endfor %}
+</ul>
+
+
+
+  {# creation formulaire: #}
+  <form method="POST" action="/games/{{game.slug}}/comments">
+  <br>
+  <br>
+  <br>
+
+  <div>
+    <label>Username: </label>
+    <input type="text" name="username" placeholder="Enter your username" />
+  </div>
+
+  <div>
+    <label for="msg">Message :</label>
+    <textarea id="msg" name="commentaire" placeholder="Enter your commentaire"></textarea>
+  </div>
+
+
+    <button type="submit">
+      SEND
+    </button>
+  </form>
+
+{% endblock %}

@@ -3,37 +3,43 @@ import { getReposUrlByNickname, listRepos, getOneRepoInfos } from "../utils";
 export type Repo = {
   url: string;
   name: string;
-  [key: string]: string |number |boolean |null;
-}
+  [key: string]: string | number | boolean | null;
+};
 
 export class GithubClient {
-  static async getReposUrl() {
-    // You code goes here
+  static async getReposUrl(nickname: string): Promise<string> {
+    getReposUrlByNickname(nickname); await (url) => {
+      if (url.message === "Not Found") {
+        throw new Error("User doesn't exist");
+      } else {
+        return url.repos_url;
+      }
+    })
   }
 
-  static async getRepos() {
-    // You code goes here
+  static getRepos(url: string): Promise<Repo[]> {
+    return listRepos(url);
   }
-  
-  static async getProjectInformations() {
-    // You code goes here
+
+  static getProjectInformations(url: string): Promise<Repo> {
+    return getOneRepoInfos(url);
   }
 
   static printRepos(repos: Repo[]): Repo[] {
     repos.forEach((repo, index) => {
-      const repoNumber = (index + 1).toString().padStart(3, " ")
-      console.log(`${repoNumber} - ${repo.name}`)
-    })
-    return repos
+      const repoNumber = (index + 1).toString().padStart(3, " ");
+      console.log(`${repoNumber} - ${repo.name}`);
+    });
+    return repos;
   }
 
   static printRepository(repo: Repo): void {
-    const cleanName = repo.name.replace(/\w*\//, "")
-    console.log(`Repository:          ${cleanName}`)
-    console.log(`Description:         ${repo.description ? repo.description : "No description available"}`)
-    console.log(`Subscribers count:   ${repo.subscribers_count}`)
-    console.log(`Stars count:         ${repo.stargazers_count}`)
-    console.log(`Language:            ${repo.language}`)
-    console.log(`Url:                 ${repo.url}`)
+    const cleanName = repo.name.replace(/\w*\//, "");
+    console.log(`Repository:          ${cleanName}`);
+    console.log(`Description:         ${repo.description ? repo.description : "No description available"}`);
+    console.log(`Subscribers count:   ${repo.subscribers_count}`);
+    console.log(`Stars count:         ${repo.stargazers_count}`);
+    console.log(`Language:            ${repo.language}`);
+    console.log(`Url:                 ${repo.url}`);
   }
 }
